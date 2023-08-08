@@ -1,0 +1,29 @@
+#
+# Copyright (C) 2023 The Android Open Source Project
+# Copyright (C) 2023 SebaUbuntu's TWRP device tree generator
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+# Inherit from those products. Most specific first.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+
+# Inherit some common Omni stuff.
+$(call inherit-product, vendor/omni/config/common.mk)
+
+# Inherit from moba device
+$(call inherit-product, device/lenovo/moba/device.mk)
+
+PRODUCT_DEVICE := moba
+PRODUCT_NAME := omni_moba
+PRODUCT_BRAND := Lenovo
+PRODUCT_MODEL := Lenovo L79031
+PRODUCT_MANUFACTURER := lenovo
+
+PRODUCT_GMS_CLIENTID_BASE := android-lenovo-rvo3
+
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    PRIVATE_BUILD_DESC="moba_row-user 10 QKQ1.200510.002 12.0.099_200721 release-keys"
+
+BUILD_FINGERPRINT := Lenovo/moba_row/moba:10/QKQ1.200510.002/12.0.099_200721:user/release-keys
